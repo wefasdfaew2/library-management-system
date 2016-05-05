@@ -124,7 +124,7 @@
 			$config['total_rows'] = $this->db->get('member')->num_rows();
 			$this->pagination->initialize($config);
 			$viewdata['details'] = $this->db->get('member', $config['per_page'], $this->uri->segment(3));
-             //$viewdata['details'] = $this->member_model->view_member();
+             $viewdata['details'] = $this->member_model->view_member();
              $this->load->view('template/header');
              $this->load->view('member/view_member',$viewdata);
              $this->load->view('template/footer');
