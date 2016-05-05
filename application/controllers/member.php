@@ -119,8 +119,8 @@
 			$this->load->library('pagination');
 			$this->load->library('table');
 			$config['base_url'] = "http://localhost/lms/index.php/member/view_member";
-			$config['per_page'] = 15;
-			$config['num_links'] = 10;
+			$config['per_page'] = 10;
+			$config['num_links'] = 3;
 			$config['total_rows'] = $this->db->get('member')->num_rows();
 			$this->pagination->initialize($config);
 			$viewdata['details'] = $this->db->get('member', $config['per_page'], $this->uri->segment(3));

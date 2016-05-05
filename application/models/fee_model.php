@@ -91,7 +91,7 @@ if (!defined('BASEPATH'))
 		}
 
 		public function viewDeadFee(){
-			$sql = "SELECT m.member_id, m.first_name, m.last_name, m.contact_1, m.email, f.start_date, f.end_date, f.amount FROM member m INNER JOIN fee_history f on m.member_id=f.member_id WHERE end_date>=CURDATE() AND m.status='1'";
+			$sql = "SELECT m.member_id, m.first_name, m.last_name, m.contact_1, m.email, f.start_date, f.end_date, f.amount FROM member m INNER JOIN fee_history f on m.member_id=f.member_id WHERE end_date<CURDATE() AND m.status='1'";
 			$query = $this->db->query($sql);
 			if($query->num_rows()>0){
 				return $query;

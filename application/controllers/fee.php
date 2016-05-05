@@ -96,8 +96,8 @@
             $this->load->library('pagination');
             $this->load->library('table');
             $config['base_url'] = PATH."fee/viewDeadFee";
-            $config['per_page'] = 20;
-            $config['num_links'] = 10;
+            $config['per_page'] = 2;
+            $config['num_links'] = 2;
             $this->pagination->initialize($config);
             
             $data['deadFee'] = $this->fee_model->viewDeadFee();
