@@ -32,7 +32,7 @@ class member_model extends CI_Model {
 	}
 
     public function view_member(){
-        $data = "SELECT member_id, first_name, middle_name, last_name, contact_1, contact_2, email, address_building, address_street, address_city, address_pin, blood_group, type, status FROM member";
+        $data = "SELECT member_id, first_name, middle_name, last_name, contact_1, contact_2, email, address_building, address_street, address_city, address_pin, blood_group, type, status FROM member WHERE status='1'";
         $viewdata = $this->db->query($data);
         return $viewdata;
      }
@@ -106,7 +106,7 @@ class member_model extends CI_Model {
 		extract($memberId);
 		$sql = "UPDATE member SET status='0' WHERE member_id='$member_id'";
 		$delete = $this->db->query($sql);
-		$sql = "UPDATE deposit SET returned='1' WHERE member_id='$member_id'";
+		$sql = "UPDATE deposit SET returned='1',return_date=CURDATE() WHERE member_id='$member_id'";
 		$deleteDeposit = $this->db->query($sql);
 		if($delete && $deleteDeposit){
 			return TRUE;

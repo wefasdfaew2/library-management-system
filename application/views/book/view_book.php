@@ -58,7 +58,7 @@
 									echo "<td>".$fetchrow['book_type'];
 									echo "<td>Rs. ".$fetchrow['cost'];
 									//echo "<td>".$fetchrow['blood_group']."</td>";
-									echo "<td>".$fetchrow['purchase_date']."</td>";
+									echo "<td>".date('d-m-Y', strtotime($fetchrow['purchase_date']))."</td>";
 								}
 							?>
 						</tbody>

@@ -50,5 +50,27 @@ class deposit_model extends CI_Model {
 		}
 		echo "Error occured! Please try again later.";
 	}
+
+	public function viewActiveDeposit(){
+		$sql = "SELECT m.member_id, m.first_name, m.last_name, m.contact_1, m.email, d.amount, d.date FROM member m INNER JOIN deposit d ON m.member_id=d.member_id WHERE m.status='1'";
+		$query = $this->db->query($sql);
+		if($query->num_rows()>0){
+			return $query;
+		}
+		else{
+			return "No records found";
+		}
+	}
+
+	public function viewReturnedDeposit(){
+		$sql = "SELECT m.member_id, m.first_name, m.last_name, m.contact_1, m.email, d.amount, d.date, d.return_date as return_on FROM member m INNER JOIN deposit d ON m.member_id=d.member_id WHERE m.status='0' AND d.returned='1'";
+		$query = $this->db->query($sql);
+		if($query->num_rows()>0){
+			return $query;
+		}
+		else{
+			return "No records found";
+		}
+	}
 }
 

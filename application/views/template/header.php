@@ -70,7 +70,7 @@
 								<?php echo anchor('member/add_member','<i class="fa fa-user fa-fw"></i>Add Member');		 ?>
                             </li>
                             <li>
-                                <?php echo anchor('member/view_member','<i class="fa fa-list fa-fw"></i>Members List') ?>
+                                <?php echo anchor('member/view_member','<i class="fa fa-list fa-fw"></i>Active Members List') ?>
                             </li>
                             <li>
                                 <?php echo anchor('searchdatabase_control/find_members', '<i class="fa fa-search fa-fw"></i>Search Member') ?>

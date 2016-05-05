@@ -68,4 +68,34 @@
                 $this->load->view('template/footer');
             }
         }
+
+
+        public function viewActiveDeposit(){
+            $this->load->library('pagination');
+            $this->load->library('table');
+            $config['base_url'] = PATH."deposit/viewActiveDeposit";
+            $config['per_page'] = 20;
+            $config['num_links'] = 10;
+            $this->pagination->initialize($config);
+            
+            $data['activeDeposit'] = $this->deposit_model->viewActiveDeposit();
+            $this->load->view('template/header');
+            $this->load->view('deposit/viewActiveDeposit',$data);
+            $this->load->view('template/footer');
+        }
+
+        public function viewReturnedDeposit(){
+            $this->load->library('pagination');
+            $this->load->library('table');
+            $config['base_url'] = PATH."deposit/viewReturnedDeposit";
+            $config['per_page'] = 20;
+            $config['num_links'] = 10;
+            $this->pagination->initialize($config);
+            
+            $data['returnDeposit'] = $this->deposit_model->viewReturnedDeposit();
+            $this->load->view('template/header');
+            $this->load->view('deposit/viewReturnedDeposit',$data);
+            $this->load->view('template/footer');
+        }
+
     }

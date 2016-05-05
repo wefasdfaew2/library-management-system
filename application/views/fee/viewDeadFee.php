@@ -23,8 +23,8 @@
 								echo "<td>".$dead['first_name']." ".$dead['last_name']."</td>";
 								echo "<td>".$dead['contact_1']."<br>".$dead['email']."</td>";
 								echo "<td>".$dead['amount']."</td>";
-								echo "<td>".$dead['start_date']."</td>";
-								echo "<td>".$dead['end_date']."</td>";
+								echo "<td>".date('d-m-Y', strtotime($dead['start_date']))."</td>";
+								echo "<td>".date('d-m-Y', strtotime($dead['end_date']))."</td>";
 								echo "</tr>";
 							}
 						}
